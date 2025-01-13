@@ -1,7 +1,9 @@
 import MentorCardImage from '../assets/images/mentor-card-sample.png';
 
 export function MentorCard() {
-  const imageSrc:string = typeof MentorCardImage === 'object' ? MentorCardImage?.src : MentorCardImage;
+  const imageSrc: string = typeof MentorCardImage === 'object' && 'src' in MentorCardImage
+      ? (MentorCardImage as { src: string }).src
+      : MentorCardImage;
   // console.log(MentorCardImage)
   // {
   //   src: '/_next/static/media/mentor-card-sample.81d41389.png',
